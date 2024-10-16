@@ -1,9 +1,14 @@
 // Uncomment the code below and write your tests
-// import { simpleCalculator, Action } from './index';
+import { simpleCalculator, Action } from './index';
 
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
-    // Write your test here
+    expect(simpleCalculator({ a: 1, b: 2, action: Action.Add })).toBe(3);
+    expect(simpleCalculator({ a: -1, b: 2, action: Action.Add })).toBe(1);
+    expect(simpleCalculator({ a: 1, b: -2, action: Action.Add })).toBe(-1);
+    expect(simpleCalculator({ a: 1, b: Infinity, action: Action.Add })).toBe(
+      Infinity,
+    );
   });
 
   test('should subtract two numbers', () => {
