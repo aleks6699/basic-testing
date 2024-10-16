@@ -11,7 +11,7 @@ type RawCalculatorInput = {
   b: unknown;
   action: unknown;
 };
-  
+
 type ValidCalculatorInput = {
   a: number;
   b: number;
