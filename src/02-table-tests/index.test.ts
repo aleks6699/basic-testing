@@ -33,15 +33,10 @@ const testCases = [
 ];
 
 describe('simpleCalculator', () => {
-  testCases.forEach((testCase) => {
-    test('test simpleCalculator table ', () => {
-      expect(
-        simpleCalculator({
-          a: testCase.a,
-          b: testCase.b,
-          action: testCase.action,
-        }),
-      ).toBe(testCase.expected);
-    });
-  });
+  test.each(testCases)(
+    'should return $expected for $a $action $b',
+    ({ a, b, action, expected }) => {
+      expect(simpleCalculator({ a, b, action })).toBe(expected);
+    },
+  );
 });

@@ -15,7 +15,7 @@ describe('BankAccount', () => {
     const account = getBankAccount(100);
 
     expect(() => {
-      account.withdraw(2000)
+      account.withdraw(2000);
     }).toThrowError(InsufficientFundsError);
   });
 
@@ -25,7 +25,6 @@ describe('BankAccount', () => {
     }).toThrowError(InsufficientFundsError);
   });
   test('should throw error when transferring to the same account', () => {
-
     const account = getBankAccount(1000);
     expect(() => account.transfer(5000, account)).toThrowError(
       TransferFailedError,
@@ -33,8 +32,6 @@ describe('BankAccount', () => {
     expect(() => account.transfer(5000, account)).toThrowError(
       'Transfer failed',
     );
-
-
   });
 
   test('should deposit money', () => {
@@ -47,7 +44,9 @@ describe('BankAccount', () => {
   });
 
   test('should transfer money', () => {
-    expect(getBankAccount(100).transfer(100, getBankAccount(100)).getBalance()).toBe(0);
+    expect(
+      getBankAccount(100).transfer(100, getBankAccount(100)).getBalance(),
+    ).toBe(0);
   });
 
   test('fetchBalance should return number if request did not fail', async () => {
